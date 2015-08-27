@@ -44,7 +44,8 @@
 
 **提示** - 在一个画布中，可以同时存在一个模版或命名为*@stylesheet*的图层.
 
-**专业提示** - 当你复制你的图层组的时候, 你可以去掉sketch自动添加的 "copy"后缀 - 点击设置 > Layers > 不点选 "Rename Duplicated Layers"
+**专业提示** - 当你复制你的图层组的时候, 你可以去掉sketch自动添加的 "copy"后缀 
+- 点击设置 > Layers > 不点选 "Rename Duplicated Layers"
 
 ## 提示
 
