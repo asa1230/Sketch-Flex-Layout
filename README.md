@@ -1,47 +1,51 @@
-# Sketch Flex Layout
-A Plugin for Sketch allowing for CSS Flexbox layouts using stylesheets and prototypes. Here's a [Medium article](https://medium.com/@hrescak/exploring-dynamic-layout-in-sketch-fdf0e825d1cf) with some background. To install the plugin download this repository as a ZIP and double click the Flex-Layout.sketchplugin file. **Important note :** *This is a very work in progress version for early testing. A lot of things are subject to change and using it on critical projects is not yet recommended.*
+# sketch 自动适调整布局插件
+安装插件：
+1.下载包里的ZIP文件
+2.双击“Flex-Layout.sketchplugin”文件，完成安装.
+**重要提示 :** *这里是一个早期测试的版本. 许多功能还要大家熟悉后，才能更好使用。前期请大家不要立即重要的项目中来使用它.*
 
 ![](http://i.imgur.com/Z5A8Hqo.png)
 
-Flex Layout allows you to use both a stylesheet text layer and 'prototypes'. Prototypes are layer groups with added style layers - their sizes work as base for establishing paddings, margins, sizes etc. There's an [example file](https://github.com/hrescak/Sketch-Flex-Layout/raw/master/ExampleFile.sketch) included in the repository that shows examples of working with both.
+插件使用主要包含2个部分，CSS文件和布局模版.布局模版是抽象过了的界面元素。如果大家不太好理解的话，建议先下一个 [案例](https://github.com/hrescak/Sketch-Flex-Layout/raw/master/ExampleFile.sketch) 来进一步了解和掌握插件的工作原理
 
-## Working with stylesheets
+##写样式表文件
 
 ![](http://i.imgur.com/2FcoADp.png)
 
-1. Create a text layer and name it **“@stylesheet”**.
-2. Write css in the layer. Some rules:
-	- the supported properties are listed [here](https://github.com/facebook/css-layout).
-	- they are in camelCase not hyphen-ated
-	- they have no units
-	- shortcut rules are not supported (yet)
-	- there are only classes *(.something)*
-	- so no nested styles *(“\>” declarations)*
-3. Create some layers and append the selectors to them. So if your selector is '.someclass{width:200;}', you rename the layer from 'Rect1' to 'Rect1 .someclass'
-4. Run cmd + ctrl + L for the layout to apply _(make sure your stylesheet layer is de-selected, or the changes will not apply)_
+1. 创建一文本图层并命名为 **“@stylesheet”**.
+2. 撰写CSS的一些规则:
+	- 了解支持的属性及清单请看 [这里](https://github.com/facebook/css-layout).
+	- 使用骆驼命名方法
+	- 不需要写单位
+	- 暂时还不能支持缩写快速编码输入
+	- 只能写CLASS名称，不能写ID *(.something)*
+	- 没有嵌套样式 *(“\>” declarations)*
+3. 创建一些图层并修改命名. 比如你样式写的是 '.someclass{width:200;}', 你需要修改你的图层名'Rect1' 为 'Rect1 .someclass'
+4. 使用 cmd + ctrl + L 快捷键可以运行效果 _(确定你的css样式层没有被选择, 不然的话 你的效果无法看得到；请检查你的快捷键，保证快捷键没有被占用)_
 
-## Working with prototypes
+## 使用模版
 
 ![](http://i.imgur.com/Y86vIYJ.png)
 
-1. Create a layer group, name it **"prototype .SOMETHING"**
-2. Add rectangles to the group that will define its style - [these are the supported names and dimensions](http://i.imgur.com/IguIeFI.png)
-	- if you need it, add a text layer named **"@styles"** with layout styles, separated by semicolon - [these are the styles and values](http://i.imgur.com/oseZ1Dr.png)
-3. You can add more groups with their own styles to the prototype group, and these don't need the "prototype" in their name, just the **".somethingelse"** class name
-4. Run _Add Object From Prototype_ action - this will duplicate the prototype, remove all the style layers and if you have a group selected, it will move it under the group. This will also apply the layout.
-5. After you make changes, Run cmd + ctrl + L for the layout to apply.
+1. 创建一个图层组并命名为 **"prototype .SOMETHING"**
+2. 添加一些矩形来定义或描述UI的风格 - [支持的命名后缀和功能](http://i.imgur.com/IguIeFI.png)
+	- 如果你需要，可以新增一文本图层命名为 **"@styles"** 用分好风格开 - [支持的样式和属性](http://i.imgur.com/oseZ1Dr.png)
+3. 你可以用UI元素模版创建更多UI元素, 可以不用跟上模版的后缀名，比如 **".somethingelse"** 这样的命名就好了。
+4. 点击运行 _Add Object From Prototype_ 命令菜单 - 这个将复制模版, 移除所有图层样式层。如果你有图层样式层的话，
+他也会将图层组移到图层的底部。
+5. 做完所有工作后,运行 cmd + ctrl + L 会看到效果了.
 
-**Tip** - you can have both prototypes and a *@stylesheet* layer on the same page.
+**提示** - 在一个画布中，可以同时存在一个模版或命名为*@stylesheet*的图层.
 
-**Pro Tip** - when you duplicate your groups, you can prevent Sketch from adding "copy" to their names - Go to Preferences > Layers > Uncheck "Rename Duplicated Layers"
+**专业提示** - 当你复制你的图层组的时候, 你可以去掉sketch自动添加的 "copy"后缀 - 点击设置 > Layers > 不点选 "Rename Duplicated Layers"
 
-## Notes
+## 提示
 
-1. You can have different stylesheets in different pages, the layout gets applied on the current page only.
-2. If a layer group has a style, all of it's children are automatically part of the layout.
-3. Adding a layer named **"bg"** stretches it to the size of the group. This is because unlike in HTML, groups have no default background.
-4. Class names are unique across the page and prototypes - if you have a class ".picture" in a prototype and ".picture" in a different one or the stylesheet, only one of them gets applied.
+1. 在每个画布都可以有不同的样式表文件。样式文件只对当前的文件有效。
+2. 如果一个图层组有样式文件，所有组内文件都遵循该样式.
+3. 添加一个名为 **"bg"** 的层在你的组.因为这里不像html，每个效果层不一定有背景.
+4. 图层命名最好与“ page”  “prototypes”等系统名称区分开 .不同模版或不同样式表中的“picture, 只有一个会得到应用.
 
-## Todos / Known problems
+## 即将做的 / 已知问题
 
-- See [Issues](https://github.com/hrescak/Sketch-Flex-Layout/issues) to the right.
+- 查看 [问题1](https://github.com/hrescak/Sketch-Flex-Layout/issues) .
