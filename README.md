@@ -1,7 +1,8 @@
-# sketch 自动适调整布局插件
+# sketch 自适配布局插件
 安装插件：
-1.下载包里的ZIP文件
-2.双击“Flex-Layout.sketchplugin”文件，完成安装.
+	-1.下载包里的ZIP文件                                                                           
+	-2.双击“Flex-Layout.sketchplugin”文件，完成安装.                                                     
+	
 **重要提示 :** *这里是一个早期测试的版本. 许多功能还要大家熟悉后，才能更好使用。前期请大家不要立即重要的项目中来使用它.*
 
 ![](http://i.imgur.com/Z5A8Hqo.png)
