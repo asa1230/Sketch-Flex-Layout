@@ -1,7 +1,8 @@
 # sketch 自适配布局插件
 安装插件：
-	-1.下载包里的ZIP文件                                                                           
-	-2.双击“Flex-Layout.sketchplugin”文件，完成安装.                                                     
+	-1.下载包里的ZIP文件   
+	
+	-2.双击“Flex-Layout.sketchplugin”文件，完成安装.    
 	
 **重要提示 :** *这里是一个早期测试的版本. 许多功能还要大家熟悉后，才能更好使用。前期请大家不要立即重要的项目中来使用它.*
 
@@ -15,7 +16,8 @@
 
 1. 创建一文本图层并命名为 **“@stylesheet”**.
 2. 撰写CSS的一些规则:
-	- 了解支持的属性及清单请看 [这里](https://github.com/facebook/css-layout).
+	- 了解支持的属性及清单请看 这里
+	![](https://github.com/facebook/css-layout).
 	- 使用骆驼命名方法
 	- 不需要写单位
 	- 暂时还不能支持缩写快速编码输入
@@ -29,8 +31,12 @@
 ![](http://i.imgur.com/Y86vIYJ.png)
 
 1. 创建一个图层组并命名为 **"prototype .SOMETHING"**
-2. 添加一些矩形来定义或描述UI的风格 - [支持的命名后缀和功能](http://i.imgur.com/IguIeFI.png)
-	- 如果你需要，可以新增一文本图层命名为 **"@styles"** 用分好风格开 - [支持的样式和属性](http://i.imgur.com/oseZ1Dr.png)
+2. 添加一些矩形来定义或描述UI的风格
+        - 支持的命名后缀和功能
+        - ![](http://i.imgur.com/IguIeFI.png)
+	- 如果你需要，可以新增一文本图层命名为 **"@styles"** 用分好风格开
+	- - 支持的样式和属性
+	- ![](http://i.imgur.com/oseZ1Dr.png)
 3. 你可以用UI元素模版创建更多UI元素, 可以不用跟上模版的后缀名，比如 **".somethingelse"** 这样的命名就好了。
 4. 点击运行 _Add Object From Prototype_ 命令菜单 - 这个将复制模版, 移除所有图层样式层。如果你有图层样式层的话，
 他也会将图层组移到图层的底部。
